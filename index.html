@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Height Equals Width</title>
+       
+    </head>
+    <body>
+        
+        <!--
+        The elements with class "height_equals_width" takes 100% width of the container
+        and the height of the element is made equal to width of the element.
+        To use it just copy the javascript code and give the element class="height_equals_width".
+        It can be used over multiple elements, just give them class="height_equals_width".
+        -->
+        
+        <div style="max-width:500px;margin:auto">
+            <img src="product_images/aircraft_engine.jpg" class="height_equals_width">
+        </div>
+
+        <script>
+            window.addEventListener('resize', height_equals_width);
+            height_equals_width();
+            function height_equals_width(){
+                var width;
+                var elements_array=document.getElementsByClassName('height_equals_width');
+                for(i=0;i<elements_array.length;i++){
+                    elements_array[i].style.width='100%';
+                    width=elements_array[i].clientWidth;
+                    //console.log(width);
+                    elements_array[i].style.height=`${width}px`;
+                    //console.log(elements_array[i].clientHeight);
+                }
+            }
+        </script>
+    </body>
+</html>
